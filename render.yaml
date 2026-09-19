@@ -1,0 +1,19 @@
+services:
+  # RepoTalks AI Backend (FastAPI on Render Free Tier)
+  - type: web
+    name: repotalks-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: MAX_UPLOAD_SIZE_MB
+        value: 50
+      - key: DATA_DIR
+        value: /var/data
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false

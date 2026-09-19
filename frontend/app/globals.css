@@ -1,0 +1,164 @@
+@import '@xyflow/react/dist/style.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Code Atlas Design Tokens ─── */
+@layer base {
+  :root {
+    --canvas: 222 14% 96%;
+    --surface: 0 0% 100%;
+    --muted-surface: 220 20% 95%;
+    --foreground: 216 40% 14%;
+    --muted-foreground: 215 14% 41%;
+    --border: 218 18% 88%;
+    --input: 216 12% 51%;
+    --primary: 222 72% 49%;
+    --primary-fg: 0 0% 100%;
+    --selected: 222 100% 96%;
+    --selected-fg: 222 58% 41%;
+    --success-fg: 157 62% 25%;
+    --warning-fg: 36 82% 29%;
+    --danger-fg: 351 56% 43%;
+    --focus-ring: 222 72% 49%;
+    --radius: 8px;
+  }
+
+  .dark {
+    --canvas: 216 28% 7%;
+    --surface: 216 25% 11%;
+    --muted-surface: 214 25% 15%;
+    --foreground: 218 30% 93%;
+    --muted-foreground: 215 18% 69%;
+    --border: 215 18% 24%;
+    --input: 215 14% 52%;
+    --primary: 222 100% 77%;
+    --primary-fg: 216 40% 8%;
+    --selected: 216 58% 23%;
+    --selected-fg: 222 100% 88%;
+    --success-fg: 152 53% 69%;
+    --warning-fg: 42 80% 67%;
+    --danger-fg: 351 100% 80%;
+    --focus-ring: 222 100% 82%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    @apply antialiased;
+    background-color: hsl(var(--canvas));
+    color: hsl(var(--foreground));
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ─── Focus Ring ─── */
+@layer utilities {
+  .focus-ring {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-surface;
+  }
+}
+
+/* ─── React Flow Canvas Overrides ─── */
+.react-flow__node {
+  border-radius: 0.5rem;
+  padding: 0;
+}
+.react-flow__edge-path {
+  stroke-width: 2px;
+  stroke: hsl(var(--primary));
+}
+.react-flow__edge-textbg {
+  fill: hsl(var(--surface));
+  rx: 4px;
+  ry: 4px;
+}
+.react-flow__edge-text {
+  fill: hsl(var(--primary));
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+.react-flow__controls {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+}
+.react-flow__controls-button {
+  background: hsl(var(--surface));
+  border-bottom: 1px solid hsl(var(--border));
+  fill: hsl(var(--muted-foreground));
+}
+.react-flow__controls-button:hover {
+  background: hsl(var(--muted-surface));
+}
+.react-flow__minimap {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* ─── Voice Recording Indicator ─── */
+.recording-pulse {
+  box-shadow: 0 0 0 0 hsl(var(--danger-fg) / 0.4);
+  animation: recordPulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes recordPulse {
+  to {
+    box-shadow: 0 0 0 16px hsl(var(--danger-fg) / 0);
+  }
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .recording-pulse {
+    animation: none;
+    box-shadow: 0 0 0 3px hsl(var(--danger-fg) / 0.3);
+  }
+}
+
+/* ─── Print ─── */
+@media print {
+  aside, nav, header, .no-print {
+    display: none !important;
+  }
+  body, main {
+    background: white !important;
+    color: black !important;
+  }
+}

@@ -1,0 +1,42 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+.pytest_cache/
+
+# Node.js / Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# ChromaDB local data
+chroma_data/
+*.db
+*.sqlite3
+
+# Data directory
+data/
+
+# IDE / System files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local audit & scratch output
+output/
+.audit/
+.playwright-cli/
