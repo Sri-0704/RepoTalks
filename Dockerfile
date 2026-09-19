@@ -1,14 +1,4 @@
-# Stage 1: Build Next.js Static Frontend
-FROM node:18-alpine AS frontend-builder
-WORKDIR /app/frontend
-
-COPY frontend/package*.json ./
-RUN npm install
-
-COPY frontend ./
-RUN npm run build
-
-# Stage 2: Production Python Backend serving Static Frontend
+# Production Python Backend (FastAPI)
 FROM python:3.11-slim
 WORKDIR /app
 
@@ -22,9 +12,6 @@ RUN pip install --no-cache-dir -r backend/requirements.txt
 
 # Copy backend application source
 COPY backend ./backend
-
-# Copy built static frontend from Stage 1
-COPY --from=frontend-builder /app/frontend/out ./frontend/out
 
 # Create persistent data directory and unprivileged application user
 RUN useradd -m -u 1001 -s /bin/bash appuser \
