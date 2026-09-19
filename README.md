@@ -3,15 +3,13 @@
   <img src="./assets/Banner.png" alt="RepoTalks AI Banner" width="100%">
 </p>
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-repotalks.onrender.com-00C853?style=for-the-badge&logo=render&logoColor=white)](https://repotalks.onrender.com)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Sri--0704%2FRepoTalks-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Sri-0704/RepoTalks)
 [![Google Gemini](https://img.shields.io/badge/AI-Google_Gemini_3.6-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)](https://aistudio.google.com/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js_14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.style=for-the-badge)](LICENSE)
 
 > **RepoTalks AI** is an agentic, multimodal AI platform that turns any software repository into an interactive, conversational learning experience. Whether you're preparing for a **project viva defense**, conducting a **technical interview**, or onboarding onto a new codebase, RepoTalks AI breaks down code architecture, traces execution paths step-by-step, and evaluates your project knowledge in real-time.
-
-🌐 **Try the Live Web App:** [https://repotalks.onrender.com](https://repotalks.onrender.com)
 
 ---
 
@@ -97,14 +95,14 @@ Tailor codebase explanations to four distinct audiences with custom AI personas:
 | Layer | Technology | Purpose |
 | :--- | :--- | :--- |
 | **AI Models** | **Google Gemini 3.6 Flash** | Architecture generation, quantitative code auditing & deep analysis |
-| | **Google Gemini 3.6 Flash** | Real-time SSE streaming chat, Viva examiner, and Code Tracer |
+| | **Google Gemini 3.6 Flash** / **Groq (Llama 3.3 / GPT-OSS)** | Real-time SSE streaming chat, Viva examiner, and Code Tracer with dual-provider failover |
 | | **gemini-embedding-2** | Code chunk vector embeddings for RAG retrieval |
 | **Backend** | **Python 3.11 / FastAPI** | High-performance async REST API & Server-Sent Events (SSE) |
 | **Vector Store** | **SQLite + NumPy** | Embedded, lightweight persistent vector database |
 | **Frontend** | **Next.js 14 (App Router)** | Modern React 18 interface with static export deployment |
 | **Styling & UI** | **Tailwind CSS + Framer Motion** | Frosted glassmorphic design, fluid micro-animations |
 | **Visualizations** | **Mermaid.js** | Interactive diagram generation (Component, API Flow, ERD) |
-| **Deployment** | **Render / Docker** | Single unified Web Service deployment container |
+| **Deployment** | **Vercel (Frontend) + Render Free Tier (Backend) / Docker** | 100% Free Tier split deployment or unified container |
 
 ---
 
@@ -117,7 +115,7 @@ Tailor codebase explanations to four distinct audiences with custom AI personas:
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/aniXsamurai/RepoTalks.git
+git clone https://github.com/Sri-0704/RepoTalks.git
 cd RepoTalks
 ```
 
@@ -171,5 +169,5 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/aniXsamurai">aniXsamurai</a> & <a href="https://github.com/ravi3404">ravi3404</a>— Powered by Google Gemini AI
+  Made with ❤️ by <a href="https://github.com/Sri-0704">Sri-0704</a> — Powered by Google Gemini & Groq AI
 </p>
