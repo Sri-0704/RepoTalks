@@ -40,3 +40,10 @@ Thumbs.db
 output/
 .audit/
 .playwright-cli/
+
+# Internal audit, plan, and prompt markdown files
+*_REPORT.md
+*_PLAN.md
+ANTIGRAVITY_*.md
+AGENTS.md
+
